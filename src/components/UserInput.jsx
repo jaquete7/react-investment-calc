@@ -4,9 +4,15 @@ export default function UserInput({ label, id, value, onChange }) {
     onChange(id, e.target.value);
   };
   return (
-    <div>
+    <p>
       <label htmlFor={id}>{label}</label>
-      <input id={id} type="number" value={value} onChange={handleInputChange} />
-    </div>
+      <input
+        id={id}
+        type="number"
+        required
+        value={value}
+        onChange={handleInputChange}
+      />
+    </p>
   );
 }

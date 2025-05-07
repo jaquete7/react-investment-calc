@@ -1,3 +1,5 @@
+import { formatter } from "../util/investment";
+
 export default function Results({ results }) {
   return (
     <table id="result">
@@ -5,7 +7,7 @@ export default function Results({ results }) {
         <tr>
           <th>Year</th>
           <th>Investment Value</th>
-          <th>Interest</th>
+          <th>Interest (Year)</th>
           <th>Total interest</th>
           <th>Invested Capital</th>
         </tr>
@@ -14,9 +16,10 @@ export default function Results({ results }) {
         {results.map((yearData) => (
           <tr key={yearData.year}>
             <td>{yearData.year}</td>
-            <td>{yearData.valueEndOfYear.toFixed(2)}</td>
-            <td>{yearData.interest.toFixed(2)}</td>
-            <td>{yearData.annualInvestment.toFixed(2)}</td>
+            <td>{formatter.format(yearData.valueEndOfYear.toFixed(2))}</td>
+            <td>{formatter.format(yearData.interest.toFixed(2))}</td>
+            <td>{formatter.format(yearData.annualInvestment.toFixed(2))}</td>
+            <td>{formatter.format(yearData.investedCapital.toFixed(2))}</td>
           </tr>
         ))}
       </tbody>
